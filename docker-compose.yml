@@ -5,6 +5,9 @@ services:
     container_name: node4
     hostname: node4-dev
     command: node /usr/src/app/index.js
+    links:
+      - "mongo"
+      - "percona"
     expose:
       - 3000
     ports:
@@ -14,12 +17,28 @@ services:
     
   mongo:
     image: mongo
+    hostname: mongo_share
+    container_name: mongo_share
+    expose:
+      - 27017
+    volumes:
+      - "./share_data/mongo_data:/data/db"
+  percona:
+     image: percona
+     hostname:  percona_share
+     expose:
+      - 3306
+     volumes:
+      - "./share_data/mysql_data:/var/lib/mysql"
 
   node5:
     image: node:5.11
     container_name: node5
     hostname: node5-dev
     command:  node /usr/src/app/index.js
+    links:
+      - "percona"
+      - "mongo"
     expose:
       - 3000
     ports:
