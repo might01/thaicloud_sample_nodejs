@@ -1,0 +1,28 @@
+version: '2'
+services:
+  node4:
+    image: node:4.4
+    container_name: node4
+    hostname: node4-dev
+    command: node /usr/src/app/index.js
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
+    volumes:
+      - "./node4:/usr/src/app"
+    
+  mongo:
+    image: mongo
+
+  node5:
+    image: node:5.11
+    container_name: node5
+    hostname: node5-dev
+    command:  node /usr/src/app/index.js
+    expose:
+      - 3000
+    ports:
+      - 3001:3000
+    volumes:
+      - "./node5:/usr/src/app"
