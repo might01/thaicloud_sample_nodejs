@@ -14,11 +14,15 @@ services:
       - 3000:3000
     volumes:
       - "./node4:/usr/src/app"
-    
+  
+  redis:
+    image: redis
+    hostname: redis_share
+    expose:
+     - 6379
   mongo:
     image: mongo
     hostname: mongo_share
-    container_name: mongo_share
     expose:
       - 27017
     volumes:
