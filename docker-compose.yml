@@ -30,6 +30,8 @@ services:
       - 3306
      volumes:
       - "./share_data/mysql_data:/var/lib/mysql"
+     environment:
+      - MYSQL_ROOT_PASSWORD=root
 
   node5:
     image: node:5.11
