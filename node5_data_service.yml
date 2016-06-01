@@ -1,0 +1,27 @@
+version: '2'
+services:
+  node5_redis:
+    image: redis
+    hostname: redis_node5
+    container_name: redis_node5
+    expose:
+     - 6379
+  node5_mongo:
+    image: mongo
+    hostname: mongo_node5
+    container_name: mongo_node5 
+    expose:
+      - 27017
+    volumes:
+      - "./node5/mongo_data:/data/db"
+  node5_percona:
+     image: percona
+     hostname:  percona_node5
+     container_name: percona_node5
+     expose:
+      - 3306
+     volumes:
+      - "./node5/mysql_data:/var/lib/mysql"
+     environment:
+      - MYSQL_ROOT_PASSWORD=root
+

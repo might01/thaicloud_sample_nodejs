@@ -1,0 +1,24 @@
+version: '2'
+services:
+  node4_redis:
+    image: redis
+    hostname: redis_share
+    expose:
+     - 6379
+  node4_mongo:
+    image: mongo
+    hostname: mongo_share
+    expose:
+      - 27017
+    volumes:
+      - "./node4/mongo_data:/data/db"
+  node4_percona:
+     image: percona
+     hostname:  percona_share
+     expose:
+      - 3306
+     volumes:
+      - "./node4/mysql_data:/var/lib/mysql"
+     environment:
+      - MYSQL_ROOT_PASSWORD=root
+

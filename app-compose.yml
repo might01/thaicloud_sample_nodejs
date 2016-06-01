@@ -11,9 +11,11 @@ services:
       - 3000:3000
     volumes:
       - "./node4:/usr/src/app"
+    links:
+      - node4_redis
+      - node4_percona
+      - node4_mongo
     
-  mongo:
-    image: mongo
 
   node5:
     image: node:5.11
@@ -26,3 +28,7 @@ services:
       - 3001:3000
     volumes:
       - "./node5:/usr/src/app"
+    links:
+      - node5_redis
+      - node5_percona
+      - node5_mongo 
