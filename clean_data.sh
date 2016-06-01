@@ -1,4 +1,4 @@
 #!/bin/bash 
 
-rm -rf ./share_data/mongo_data/*
-rm -rf ./share_data/mysql_data/*
+sudo rm -rf ./share_data/mongo_data/*
+sudo rm -rf ./share_data/mysql_data/*
