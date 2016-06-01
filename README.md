@@ -6,6 +6,7 @@
 
 - docker
 - linux
+- docker-compose
 
 ## ใช้งาน
 
